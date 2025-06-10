@@ -17,6 +17,21 @@ app.set('views' , path.join(__dirname,'views'));
 
 app.use(express.static(path.join(__dirname,'public')));
 
+const multer = require('multer');
+
+// Set storage config
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'public/uploads')); // ensure this folder exists
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // unique filename
+  }
+});
+
+const upload = multer({ storage: storage });
+
+
 let posts = [
   {
     id: uuidv4(),
@@ -58,13 +73,29 @@ app.get('/posts',(req,res)=>{
 
 app.get('/',(req,res)=>{
   res.render('home.ejs');
-})
+});
 
-app.get('/posts/:id',(req,res)=>{
-  let {id} = req.params;
-  let post= posts.find((p)=> id===p.id);
-  res.render('full.ejs',{post})
-})
+app.get('/posts/new',(req,res)=>{
+  res.render('form.ejs');
+});
+
+app.post('/posts', upload.single('img'), (req, res) => {
+  let { username, followers, following, posts: postCount } = req.body;
+  const imagePath = `/uploads/${req.file.filename}`;
+
+  posts.push({
+    id: uuidv4(),
+    username,
+    followers: Number(followers),
+    following: Number(following),
+    posts: Number(postCount),
+    img: imagePath
+  });
+
+  res.redirect('/posts');
+});
+
+
 
 
 app.listen(PORT,()=>{

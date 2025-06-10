@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Post</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form class="form" method="POST" action="/posts" enctype="multipart/form-data">
+
+    <h1>Add New Post</h1>
+    <h3>Username:</h3>
+    <input type="text" placeholder="Enter a username" name="username" required>
+    <br><br/>
+    <h3>Followers:</h3>
+    <input name="followers"  placeholder="Enter your followers" required></ >
+    <br><br/>
+    <h3>Following</h3>
+    <input name="following"  placeholder="Enter your following" required></ >
+    <br><br/>
+    <h3>Posts</h3>
+    <input name="posts"  placeholder="Enter your no. of posts" required></ >
+    <br><br/>
+    <label for="file">Choose a file to upload:</label>
+    <br>
+    <input type="file" id="file" name="img">
+    <br><br/>
+    <button class="button">Submit Post</button>
+  </form>
+</body>
+</html>
