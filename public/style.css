@@ -1,0 +1,75 @@
+.profile-pic{
+  height:50px;
+  width:72px;
+  border-radius: 50%;
+}
+.board{
+  display: flex;
+  gap: 10px;
+}
+
+body{
+  background-color: lightgray;
+  font-family: Arial, sans-serif;
+}
+
+h1{
+  color:rgb(80, 0, 0);
+}
+
+.post{
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.user{
+  color:rgb(0, 0, 0);
+  font-style: italic;
+  font-size: 25px;
+}
+
+.content{
+  color:rgb(255, 0, 60);
+  font-style: oblique;
+  font-size: 20px;
+}
+
+.form{
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  width:full;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.button{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-style: italic;
+  
+}
+
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;;
+}
+
+.buttons{
+  display: flex;
+  gap: 20px;
+}

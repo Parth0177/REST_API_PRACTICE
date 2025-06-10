@@ -13,14 +13,17 @@
 
   <% posts.forEach(post => { %>
     <div class="post">
-      <h3 class="user">@<%= post.username %> </h3>
-      <p class="content"><%= post.content %></p>
+      <div class="board">
+      <h3 class="user">@<%= post.username %> </h3> 
+      <img src="<%= post.img %>" alt="Profile picture of <%= post.username %>" class="profile-pic" />
+      </div>
+      <p class="content">Followers:<%= post.followers %></p>
+      <p class="content">Following:<%= post.following %></p>
+      <p class="content">Posts:<%= post.posts %></p>
+      
       <div class="buttons">
-      <a href="/posts/<%= post.id %>"><button class="button">Click here to get detail of it</button></a>
-      <a href="/posts/<%= post.id %>/edit"><button class="button">Click here to edit</button></a>
-      <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
-      <button class="button">Delete</button></a>
-      </form>
+      <a href="/posts/<%= post.id %>"><button class="button">Profile</button></a>
+      <a href="/posts/<%= post.id %>/edit"><button class="button">Posts</button></a>
       </div>
     </div>
   <% }); %>
