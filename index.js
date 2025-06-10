@@ -60,6 +60,10 @@ app.get('/',(req,res)=>{
   res.render('home.ejs');
 })
 
+app.get('/posts',(req,res)=>{
+  res.render('posts.ejs')
+})
+
 
 
 app.listen(PORT,()=>{
